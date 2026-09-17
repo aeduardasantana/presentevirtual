@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Presente Virtual</title>
+  <meta name="description" content="Crie um presente virtual interativo e compartilhe por link." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">Presente Virtual</p>
+      <h1>Crie uma surpresa e envie por link</h1>
+      <p class="subtitle">Personalize uma mensagem, escolha um estilo e gere um link para compartilhar. Sem anúncios.</p>
+    </section>
+
+    <section id="creator" class="panel">
+      <form id="giftForm" class="form-grid">
+        <label>
+          <span>Para quem é o presente?</span>
+          <input id="recipient" name="recipient" type="text" maxlength="80" placeholder="Ex.: Ana" required />
+        </label>
+
+        <label>
+          <span>De quem?</span>
+          <input id="sender" name="sender" type="text" maxlength="80" placeholder="Ex.: Eduarda" required />
+        </label>
+
+        <label class="full">
+          <span>Mensagem</span>
+          <textarea id="message" name="message" rows="5" maxlength="500" placeholder="Escreva sua mensagem..." required></textarea>
+        </label>
+
+        <label>
+          <span>Estilo</span>
+          <select id="theme" name="theme">
+            <option value="rose">Romântico</option>
+            <option value="gold">Elegante</option>
+            <option value="blue">Sereno</option>
+            <option value="green">Alegre</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Ícone</span>
+          <select id="icon" name="icon">
+            <option value="🎁">🎁 Presente</option>
+            <option value="❤️">❤️ Coração</option>
+            <option value="🌷">🌷 Flor</option>
+            <option value="⭐">⭐ Estrela</option>
+            <option value="🎂">🎂 Aniversário</option>
+            <option value="✨">✨ Surpresa</option>
+          </select>
+        </label>
+
+        <div class="full actions">
+          <button class="primary" type="submit">Gerar presente</button>
+        </div>
+      </form>
+
+      <div id="shareBox" class="share-box hidden" aria-live="polite">
+        <p>Seu presente está pronto.</p>
+        <div class="share-row">
+          <input id="shareUrl" type="text" readonly />
+          <button id="copyButton" type="button">Copiar link</button>
+        </div>
+        <button id="previewButton" class="secondary" type="button">Abrir prévia</button>
+      </div>
+    </section>
+
+    <section id="viewer" class="viewer hidden" aria-live="polite">
+      <div class="gift-stage">
+        <button id="giftButton" class="gift-button" type="button" aria-label="Abrir presente">
+          <span id="giftIcon">🎁</span>
+          <small>Clique para abrir</small>
+        </button>
+
+        <article id="giftCard" class="gift-card hidden">
+          <div class="sparkles" aria-hidden="true">✨ ✨ ✨</div>
+          <p class="to">Para <strong id="viewRecipient"></strong></p>
+          <h2>Uma mensagem para você</h2>
+          <p id="viewMessage" class="message"></p>
+          <p class="from">Com carinho, <strong id="viewSender"></strong></p>
+          <button id="createAnother" class="secondary" type="button">Criar outro presente</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Presente Virtual</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
